@@ -235,11 +235,11 @@ def nurse_shift_assignment_example() -> AssignmentResult:
     result = optimizer.solve(costs, nurses, shifts)
 
     print("\n=== NURSE-SHIFT ASSIGNMENT ===")
-    print(f"Minimum assignment cost: {result.total_cost:,.0f} TL/week")
+    print(f"Minimum assignment cost: ${result.total_cost:,.0f}/week")
     for assignment in result.assignments:
         print(
             f"{assignment.worker} -> {assignment.task}: "
-            f"{assignment.cost:.0f} TL"
+            f"${assignment.cost:,.0f}"
         )
 
     optimizer.visualize(
@@ -260,7 +260,7 @@ def main() -> None:
     print("SUMMARY")
     print("=" * 72)
     print(f"Textile assignment: {textile_result.total_cost:.1f} hours/day")
-    print(f"Nurse-shift assignment: {nurse_result.total_cost:,.0f} TL/week")
+    print(f"Nurse-shift assignment: ${nurse_result.total_cost:,.0f}/week")
 
 
 if __name__ == "__main__":
